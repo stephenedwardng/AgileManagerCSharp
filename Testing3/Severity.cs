@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace AgileManager
 {
-    class Runner
+    public enum Severity
     {
-        public static void Main()
-        {
-        }
+        Blocker,
+        Critical,
+        Major,
+        Normal,
+        Minor,
+        Trivial,
+        Enhancement
     }
 }

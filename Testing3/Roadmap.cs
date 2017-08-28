@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgileManager
 {
-    class Roadmap
+    class Roadmap : Rangeable
     {
         private string product;
         private string overview;
@@ -61,4 +61,4 @@ namespace AgileManager
     }
 
 }
-}
+

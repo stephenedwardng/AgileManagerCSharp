@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AgileManager
 {
-    public class Book
+    interface Versionable
     {
-
+        Significance CalcSignificance();
     }
 }
-
