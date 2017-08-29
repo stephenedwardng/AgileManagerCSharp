@@ -12,6 +12,7 @@ namespace AgileManager
     {
         Item item1;
         Feature feature1;
+        Bug bug1;
         Version version;
         DateTime date1;
         List<Item> items;
@@ -22,6 +23,7 @@ namespace AgileManager
             date1 = new DateTime(2018, 3, 1, 7, 0, 0);
             item1 = new Item("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium);
             feature1 = new Feature("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium, Reason.Regulatory);
+            bug1 = new Bug("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium, Severity.Critical);
             items = new List<Item>();
             version = new Version(1.1, Significance.Minor, date1, "Accommodates next phase of regulatory requirements re data storage and minor client requests.", items, 9, 3);
         }
@@ -87,14 +89,38 @@ namespace AgileManager
             Assert.AreEqual(1, version.ItemCount());
         }
 
-        /*
         [Test]
         public void TestCanAddFeature()
         {
             version.AddItem(feature1);
             Assert.AreEqual(1, version.ItemCount());
         }
-        */
+
+        [Test]
+        public void TestCanAddBug()
+        {
+            version.AddItem(bug1);
+            Assert.AreEqual(1, version.ItemCount());
+        }
+
+        [Test]
+        public void TestCanClearItems()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            version.ClearItems();
+            Assert.AreEqual(0, version.ItemCount());
+        }
+
+        [Test]
+        public void TestDaysUsed()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(24, version.DaysUsed());
+        }
 
     }
 }

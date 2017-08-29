@@ -44,10 +44,10 @@ namespace AgileManager
         {
             int daysUsed = 0;
 
-//            foreach(var item in items)
-//            {
-//                item.DaysUsed += item.calcTotalEffort();
-//            }
+            foreach(Item i in items)
+            {
+                daysUsed += i.CalcTotalEffort();
+            }
                 
             return daysUsed;
         }
