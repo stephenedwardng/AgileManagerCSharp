@@ -122,5 +122,14 @@ namespace AgileManager
             Assert.AreEqual(24, version.DaysUsed());
         }
 
+        [Test]
+        public void TestIsFeasible()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(true, version.IsFeasible());
+        }
+
     }
 }
