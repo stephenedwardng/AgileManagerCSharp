@@ -158,5 +158,21 @@ namespace AgileManager
             Assert.AreEqual(1, version.PriorityCount(Priority.High));
         }
 
+        [Test]
+        public void TestCanCalcSignificance_Minor()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(Significance.Minor, version.CalcSignificance());
+        }
+
+        [Test]
+        public void TestCanCalcSignificance_Major()
+        {
+            version.AddItem(bug1);
+            Assert.AreEqual(Significance.Major, version.CalcSignificance());
+        }
+
     }
 }
