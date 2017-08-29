@@ -22,6 +22,7 @@ namespace AgileManager
             date1 = new DateTime(2018, 3, 1, 7, 0, 0);
             item1 = new Item("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium);
             feature1 = new Feature("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium, Reason.Regulatory);
+            items = new List<Item>();
             version = new Version(1.1, Significance.Minor, date1, "Accommodates next phase of regulatory requirements re data storage and minor client requests.", items, 9, 3);
         }
 
