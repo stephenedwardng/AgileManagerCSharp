@@ -23,7 +23,7 @@ namespace AgileManager
             date1 = new DateTime(2018, 3, 1, 7, 0, 0);
             item1 = new Item("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium);
             feature1 = new Feature("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium, Reason.Regulatory);
-            bug1 = new Bug("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.Medium, Severity.Critical);
+            bug1 = new Bug("Timestamp for Audit Trail", "Activity Log", "Auto time and user ID stamp", 5, 3, Stakeholder.Owner, Priority.High, Severity.Critical);
             items = new List<Item>();
             version = new Version(1.1, Significance.Minor, date1, "Accommodates next phase of regulatory requirements re data storage and minor client requests.", items, 9, 3);
         }
@@ -129,6 +129,33 @@ namespace AgileManager
             version.AddItem(feature1);
             version.AddItem(bug1);
             Assert.AreEqual(true, version.IsFeasible());
+        }
+
+        [Test]
+        public void TestCanCountPriority_Low()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(0, version.PriorityCount(Priority.Low));
+        }
+
+        [Test]
+        public void TestCanCountPriority_Medium()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(2, version.PriorityCount(Priority.Medium));
+        }
+
+        [Test]
+        public void TestCanCountPriority_High()
+        {
+            version.AddItem(item1);
+            version.AddItem(feature1);
+            version.AddItem(bug1);
+            Assert.AreEqual(1, version.PriorityCount(Priority.High));
         }
 
     }

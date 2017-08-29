@@ -61,13 +61,13 @@ namespace AgileManager
         {
             int count = 0;
 
-//            foreach (Item item in items)
-//            {
-//                if (item.getPriority == priority)
-//                {
-//                    count++;
-//                }
-//            }
+            foreach (Item item in items)
+            {
+                if (item.Priority == priority)
+                {
+                    count++;
+                }
+            }
             return count;
         }
 
